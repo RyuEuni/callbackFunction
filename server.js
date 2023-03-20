@@ -1,7 +1,7 @@
 import http from 'http';
 
 console.dir(http);
-const server = http.createServer(function(req, res){
+const server = http.createServer(function(reqeust, response){
 
   //비즈니스 로직 부분
   let body = "";
@@ -15,7 +15,7 @@ const server = http.createServer(function(req, res){
   body += "</body>";
   body += "</html>";
 
-  res.statusCode = 200;
-  res.setHeader('content-type', 'text/plain'); //text/plain은 설명, html은 문서, json은 객체
-  res.end('Hello World');
+  response.statusCode = 200;
+  response.setHeader('content-type', 'text/plain'); //text/plain은 설명, html은 문서, json은 객체
+  response.end('Hello World');
 });
