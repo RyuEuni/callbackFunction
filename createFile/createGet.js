@@ -8,9 +8,7 @@ const server = http.createServer(function(req, res){
     res.write(funcObj.bodyTag(funcObj.formGet));
     res.end();
   }
-  if(req.url.startsWith('/make')){
-    //console.log(req.body);
-    
+  if(req.url.startsWith('/make')){    
     const urlValue = req.url.split('=')
     console.dir(urlValue);
 
@@ -20,7 +18,7 @@ const server = http.createServer(function(req, res){
     
     res.writeHead(200, {'Content-Type': 'text/html'});
     fileMake(fileName, exp);
-    res.write(funcObj.bodyTag(funcObj.result));
+    res.write(funcObj.bodyTag(funcObj.MakeResult));
     res.write(funcObj.bodyTag(funcObj.rmFileGo));
     res.end();
   }
@@ -33,14 +31,13 @@ const server = http.createServer(function(req, res){
     const urlValue = req.url.split('=')
     console.dir(urlValue);
 
-    const exp = urlValue[2];
-    const fileName = urlValue[1].split('&')[0];
-    console.dir(exp);
+    //const exp = urlValue[2];
+    //const fileName = urlValue[1].split('&')[0];
+    //console.dir(exp);
     
     res.writeHead(200, {'Content-Type': 'text/html'});
-    fileMake(fileName, exp);
-    res.write(funcObj.bodyTag(funcObj.result));
-    res.write(funcObj.bodyTag(funcObj.rmFileGo));
+    //fileMake(fileName, exp);
+    res.write(funcObj.bodyTag(funcObj.removeResult));
     res.end();
   }
 })

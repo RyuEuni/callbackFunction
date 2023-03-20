@@ -31,7 +31,8 @@ const htmlObj = {
     </div> <br/>
     <button type="submit">생성</button>
     </form>`,
-  result: `<h3>정상적으로 파일이 생성되었습니다.</h3>`,
+  MakeResult: `<h3>정상적으로 파일이 생성되었습니다.</h3>`,
+  removeResult: `<h3>정상적으로 파일이 생성되었습니다.</h3>`,
   rmFileGo: `
     <form method="GET" action="/delete">
     <button type="submit">파일 삭제하러 가기</button>
