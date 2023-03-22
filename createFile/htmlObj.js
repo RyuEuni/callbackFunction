@@ -11,6 +11,7 @@ const htmlObj = {
     </div> <br/>
     <button type="submit">생성</button>
     </form>`,
+
   formGetDel: `<form method="GET" action="/deleteOK">
     <h3>파일 삭제</h3>
     <div>
@@ -19,6 +20,7 @@ const htmlObj = {
     </div><br/>
     <button type="submit">삭제</button>
     </form>`,
+
   formPost: `<form method="POST" action="/make">
     <h3>파일 생성</h3>
     <div>
@@ -31,12 +33,15 @@ const htmlObj = {
     </div> <br/>
     <button type="submit">생성</button>
     </form>`,
+
   MakeResult: `<h3>정상적으로 파일이 생성되었습니다.</h3>`,
-  removeResult: `<h3>정상적으로 파일이 생성되었습니다.</h3>`,
+  removeResult: `<h3>정상적으로 파일이 삭제되었습니다.</h3>`,
+
   rmFileGo: `
     <form method="GET" action="/delete">
     <button type="submit">파일 삭제하러 가기</button>
     </form>`,
+    
   bodyTag: function(data){
     return `<!DOCTYPE html>
     <html lang="en">

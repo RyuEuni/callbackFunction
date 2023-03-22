@@ -1,11 +1,11 @@
 import http from 'http';
-import fileMake from './makeFileFunc.js';
-import funcObj from './htmlObj.js';
+import fileFunc from './FileFunc.js';
+import htmlObj from './htmlObj.js';
 
 const server = http.createServer(function(req, res){
   if(req.url === '/') {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(funcObj.bodyTag(funcObj.formGet));
+    res.write(htmlObj.bodyTag(htmlObj.formGet));
     res.end();
   }
   if(req.url.startsWith('/make')){    
@@ -17,28 +17,24 @@ const server = http.createServer(function(req, res){
     console.dir(exp);
     
     res.writeHead(200, {'Content-Type': 'text/html'});
-    fileMake(fileName, exp);
-    res.write(funcObj.bodyTag(funcObj.MakeResult));
-    res.write(funcObj.bodyTag(funcObj.rmFileGo));
+    fileFunc.makeFile(fileName, exp);
+    res.write(htmlObj.bodyTag(htmlObj.MakeResult));
+    res.write(htmlObj.bodyTag(htmlObj.rmFileGo));
     res.end();
   }
   if(req.url.startsWith('/delete')){
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(funcObj.bodyTag(funcObj.formGetDel));
+    res.write(htmlObj.bodyTag(htmlObj.formGetDel));
     res.end();
   }
   if(req.url.startsWith('/deleteOK')){
-    const urlValue = req.url.split('=')
-    console.dir(urlValue);
-
-    //const exp = urlValue[2];
-    //const fileName = urlValue[1].split('&')[0];
-    //console.dir(exp);
+    const deleteValue = req.url.split('=')[1]
+    console.dir(deleteValue);
     
     res.writeHead(200, {'Content-Type': 'text/html'});
-    //fileMake(fileName, exp);
-    res.write(funcObj.bodyTag(funcObj.removeResult));
-    res.end();
+    fileFunc.removeFile(deleteValue)
+    //res.write();
+    res.end(htmlObj.bodyTag(htmlObj.removeResult));
   }
 })
 
